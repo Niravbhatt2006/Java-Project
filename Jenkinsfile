@@ -17,7 +17,7 @@ pipeline {
         }
         stage ('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/devopscbabu/Java-Project.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Niravbhatt2006/Java-Project.git']]])
             }
         }
         stage('Build') {
@@ -31,7 +31,7 @@ pipeline {
         //        withSonarQubeEnv(installationName: 'Sonarscanner', credentialsId: 'SonarCloud') {
         //          withSonarQubeEnv(credentialsId: 'sonarkey', installationName: 'SonarCloud') {
         //          sh 'mvn sonar:sonar'
-                  withSonarQubeEnv(credentialsId: 'sonarlogin', installationName: 'sonarqubelocally') {
+                  withSonarQubeEnv(credentialsId: 'sonarconect', installationName: 'sonaranalysis') {
                   sh 'mvn sonar:sonar'    
                       
                  }
